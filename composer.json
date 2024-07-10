@@ -1,0 +1,36 @@
+{
+    "name": "clicksolutions/contao-copyright",
+    "type": "contao-bundle",
+    "description": "Copyrights for images for Contao 5.3+",
+    "license": "LGPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Renè Fehrmann",
+            "homepage": "https://www.click-solutions.de"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "contao/core-bundle": "^5.3"
+    },
+    "conflict": {
+        "contao/core": "*",
+        "contao/manager-plugin": "<2.0 || >=3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ClickSolutions\\ContaoCopyrightBundle\\": "src/"
+        },
+        "classmap": [
+            "contao/"
+        ],
+        "exclude-from-classmap": [
+            "contao/dca/",
+            "contao/languages/",
+            "contao/templates/"
+        ]
+    },
+    "extra": {
+        "contao-manager-plugin": "ClickSolutions\\ContaoCopyrightBundle\\ContaoManager\\Plugin"
+    }
+}

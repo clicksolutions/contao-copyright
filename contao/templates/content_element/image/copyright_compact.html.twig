@@ -1,0 +1,24 @@
+{% extends "@Contao/content_element/image.html.twig" %}
+
+{% block picture_component %}
+  {{ parent() }}
+  {% apply spaceless %}
+    {% set meta = figure.metadata %}
+    {% if (meta is not null) and (meta.get('license') or meta.get('cs_copyright_author') or meta.get('cs_copyright_text')) %}
+
+      {% set author = meta.get('cs_copyright_author') ?: '' %}
+      {% set text = meta.get('cs_copyright_text') ?: '' %}
+      {% set title = author ~ (author and text ? ', ' : '') ~ text %}
+
+      <div class="figure-copyright" title="{{ title }}">
+        {% if meta.get('license') is not same as '' %}
+        <a href="{{ meta.get('license') }}" class="figure-copyright__link" target="_blank" rel="noreferrer nofollow">
+          {% endif %}
+          <span class="figure-copyright__sign">&copy;</span>
+          {% if meta.get('license') is not same as '' %}
+        </a>
+        {% endif %}
+      </div>
+    {% endif %}
+  {% endapply %}
+{% endblock %}

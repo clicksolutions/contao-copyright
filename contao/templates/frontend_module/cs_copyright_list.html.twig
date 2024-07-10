@@ -1,0 +1,46 @@
+{% set imageSize = picture_config({
+  width: 120,
+  height: 75,
+  resizeMode: 'crop',
+  sizes: '1,1.5,2',
+  formats: {jpeg: ['webp'], jpg: ['webp'], png: ['webp']},
+}) %}
+
+{% apply spaceless %}
+  <div class="copyright-list">
+    {% if files is defined and files is not empty %}
+      <ul class="copyright-list__files">
+        {% for file in files %}
+          {% if file.meta is defined and file.meta is not null %}
+            <li class="copyright-list__file">
+              {% set meta = file.meta %}
+              <div class="copyright-list__image">
+                {{ contao_figure(file.uuid, imageSize) }}
+              </div>
+              {% if meta.license is defined and meta.license is not empty %}
+              <a href="{{ meta.license }}" class="copyright-link" target="_blank" rel="noreferrer nofollow">
+                {% endif %}
+                <span class="copyright-sign">&copy;</span>
+                {% if meta.cs_copyright_author is defined and meta.cs_copyright_author is not empty %}
+                  <span class="copyright-author">{{ meta.cs_copyright_author }}</span>
+                {% endif %}
+                {% if meta.cs_copyright_author is defined and meta.cs_copyright_text is defined %}
+                  <span class="copyright-separator">, </span>
+                {% endif %}
+                {% if meta.cs_copyright_text is defined and meta.cs_copyright_text is not empty %}
+                  <span class="copyright-text">{{ meta.cs_copyright_text }}</span>
+                {% endif %}
+                {% if meta.license is defined and meta.license is not empty %}
+              </a>
+              {% endif %}
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% if error is defined %}
+      <div class="copyright-list__error">{{ i18n[error] }}</div>
+    {% endif %}
+  </div>
+{% endapply %}

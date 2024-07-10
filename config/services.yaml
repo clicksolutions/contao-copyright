@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    ClickSolutions\ContaoCopyrightBundle\Controller\FrontendModule\:
+        resource: '../src/Controller/FrontendModule/*'
+        tags:
+            - { name: contao.frontend_module, category: copyright }
