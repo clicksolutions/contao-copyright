@@ -54,14 +54,12 @@ class CsCopyrightList extends AbstractFrontendModuleController
         // Prepare template data
         $preparedFiles = [];
         foreach ($files as $file) {
-
-            $meta = StringUtil::deserialize($file->meta);
-            if (!$meta || !$meta[$GLOBALS['TL_LANGUAGE']]) {
+            $meta = StringUtil::deserialize($file->meta, true)[$GLOBALS['TL_LANGUAGE']] ?? null;
+            if (!\is_array($meta)) {
                 continue;
             }
 
-            $meta = $meta[$GLOBALS['TL_LANGUAGE']];
-            if (!isset($meta['cs_copyright_text']) && !isset($meta['cs_copyright_author'])) {
+            if (empty($meta['cs_copyright_text']) && empty($meta['cs_copyright_author'])) {
                 continue;
             }
 
