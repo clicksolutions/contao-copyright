@@ -10,11 +10,8 @@
 
 declare(strict_types=1);
 
-$translations = [
-//Legends
-    'path_legend' => 'Paths',
+// Legends
+$GLOBALS['TL_LANG']['tl_module']['cs_path_legend'] = 'Paths';
 
-    // Fields
-    'cs_paths' => ['Reference paths', 'Here you can select the paths to which the display should be limited.'],
-];
-$GLOBALS['TL_LANG']['tl_module'] = array_merge_recursive($GLOBALS['TL_LANG']['tl_module'], $translations);
+// Fields
+$GLOBALS['TL_LANG']['tl_module']['cs_paths'] = ['Reference paths', 'Here you can select the paths to which the display should be limited.'];

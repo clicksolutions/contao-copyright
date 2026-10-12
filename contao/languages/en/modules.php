@@ -10,10 +10,5 @@
 
 declare(strict_types=1);
 
-$translations = [
-    // Frontend modules
-    'FMD' => [
-        'cs_copyright_list' => ['Copyright list', 'Copyright list'],
-    ]
-];
-$GLOBALS['TL_LANG'] = array_merge_recursive($GLOBALS['TL_LANG'], $translations);
+// Frontend modules
+$GLOBALS['TL_LANG']['FMD']['cs_copyright_list'] = ['Copyright list', 'Copyright list'];

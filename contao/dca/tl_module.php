@@ -11,7 +11,7 @@
 declare(strict_types=1);
 
 // Palettes
-$GLOBALS['TL_DCA']['tl_module']['palettes']['cs_copyright_list'] = '{title_legend},name,type;{path_legend},cs_paths';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['cs_copyright_list'] = '{title_legend},name,type;{cs_path_legend},cs_paths';
 
 // Fields
 $GLOBALS['TL_DCA']['tl_module']['fields']['cs_paths'] = [

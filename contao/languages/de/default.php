@@ -10,10 +10,5 @@
 
 declare(strict_types=1);
 
-$translations = [
-    // Frontend modules
-    'ERR' => [
-        'noFiles' => 'Keine Dateien gefunden.'
-    ]
-];
-$GLOBALS['TL_LANG'] = array_merge_recursive($GLOBALS['TL_LANG'], $translations);
+// Errors
+$GLOBALS['TL_LANG']['ERR']['noFiles'] = 'Keine Dateien gefunden.';
